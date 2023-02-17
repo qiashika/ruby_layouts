@@ -1,0 +1,24 @@
+<%= form_with model: appointment do |form| %>
+    <div>
+      <%= form.label :appointment_datetime %><br>
+      <%= form.datetime_field :appointment_datetime%><br>
+    </div>
+    
+    <div>
+        <%= form.label :doctor_id %><br>
+        <%= form.text_field :doctor_id %><br>
+    </div>
+
+    <div>
+        <%= form.label :patient_id %><br>
+        <%= form.number_field :patient_id %><br>
+    </div>
+
+    <div>
+        <%= form.submit %><br>
+    </div>
+    
+    <div>
+        <%= link_to "Go Back", appointment_index_path%>
+    </div>
+<% end %>

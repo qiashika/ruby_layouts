@@ -1,0 +1,22 @@
+<h1>New Doctor</h1>
+<form action="/doctor" accept-charset="UTF-8" method="post">
+    <input type="hidden" name="authenticity_token" value="...">
+
+    <div>
+        <label for="doctor_name">Name</label><br>
+        <input type="text" name="doctor[name]" id="doctor_name">
+    </div>
+
+    <div>
+        <label for="doctor_specialism">Specialism</label><br>
+        <input type='text' name="doctor[specialism]" id="doctor_specialism"></input>
+    </div>
+
+    <div>
+        <input type="submit" name="commit" value="Add New Doctor" data-disable-with="Create Doctor">
+    </div>
+    
+    <div>
+        <%= link_to "Go Back", root_path%>
+    </div>
+</form>

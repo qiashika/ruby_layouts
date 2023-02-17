@@ -1,0 +1,24 @@
+<h1>Doctors List</h1>
+<table class="table table-striped ml-4 " style="max-width: 15rem;">
+<thead class="thead-dark">
+    <tr>
+        <th>Name</th>
+        <th>Specialism</th>
+        <th>Action</th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+</thead>
+
+    <% @doctors.each do |doctor| %>
+        <tr>
+            <td><%= doctor.name %></td>
+            <td><%= doctor.specialism %></td>
+            <td><%= link_to "View", doctor_path(doctor) %></td>
+            <td><%= button_to "Edit", edit_doctor_path(doctor), method: 'get' %></td>
+            <td><%= button_to "Delete", doctor_path(doctor), method: 'delete', data: {turbo_confirm: 'Are you Sure?'} %></td> 
+        </tr>
+    <% end %>
+</table>
+
+<%= link_to "Add Doctor", new_doctor_path %>

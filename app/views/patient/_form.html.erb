@@ -1,0 +1,19 @@
+<%= form_with model: patient do |form| %>
+    <div>
+      <%= form.label :patient_name %><br>
+      <%= form.text_field :patient_name %><br>
+    </div>
+    
+    <div>
+        <%= form.label :phone_number %><br>
+        <%= form.text_field :phone_number %><br>
+    </div>
+
+    <div>
+        <%= form.submit %><br>
+    </div>
+    
+    <div>
+        <%= link_to "Go Back", patient_index_path%>
+    </div>
+<% end %>

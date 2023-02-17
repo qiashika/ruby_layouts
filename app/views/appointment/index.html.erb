@@ -1,0 +1,26 @@
+<h1>Appointments List</h1>
+<table class="table table-striped ml-4 " style="max-width: 15rem;">
+<thead class="thead-dark">
+    <tr>
+        <th>Doctors Name</th>
+        <th>Patients Name</th>
+        <th>Date Time</th>
+        <th>Action</th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+</thead>
+
+    <% @appointments.each do |apt| %>
+        <tr>
+            <td><%= apt.doctor.name %></td>
+            <td><%= apt.patient.patient_name %></td>
+            <td><%= apt.appointment_datetime %></td>
+            <td><%= link_to "View", appointment_path(apt) %></td>
+            <td><%= button_to "Edit", edit_appointment_path(apt), method: 'get' %></td>
+            <td><%= button_to "Delete", appointment_path(apt), method: 'delete', data: {turbo_confirm: 'Are you Sure?'} %></td> 
+        </tr>
+    <% end %>
+</table>
+
+<%= link_to "Add Appointment", new_appointment_path %>

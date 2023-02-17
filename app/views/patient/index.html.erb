@@ -1,0 +1,24 @@
+<h1>Patient List</h1>
+<table class="table table-sm table-striped ml-4 " style="max-width: 15rem;">
+<thead class="thead-dark">
+    <tr>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Action</th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+</thead>
+
+    <% @patients.each do |patient| %>
+        <tr>
+            <td><%= patient.patient_name %></td>
+            <td><%= patient.phone_number %></td>
+            <td><%= link_to "View", patient_path(patient) %></td>
+            <td><%= button_to "Edit", edit_patient_path(patient), method: 'get' %></td>
+            <td><%= button_to "Delete", patient_path(patient), method: 'delete', data: {turbo_confirm: 'Are you Sure?'} %></td> 
+        </tr>
+    <% end %>
+</table>
+
+<%= link_to "Add Patient", new_patient_path %>

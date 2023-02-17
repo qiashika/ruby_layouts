@@ -1,0 +1,24 @@
+<h3><%= @patient.patient_name %></h3>
+<table border>
+  <tr>
+    <th>Contact</th>
+  </tr>
+  <tr>
+    <td><%= @patient.phone_number %></td>
+  </tr>
+</table>
+<h3>Appointment Details</h3>
+<table border>
+  <tr>
+    <th>Doctor Name</th>
+    <th>Specialism</th>
+    <th>Appontment Date</th>
+  </tr>
+  <tr>
+    <% @patient.appointments.each do |a|%>
+      <td><%= a.doctor.name %></td>
+      <td><%= a.doctor.specialism %></td>
+      <td><%= a.appointment_datetime %></td>
+    <% end %>
+  </tr>
+</table>

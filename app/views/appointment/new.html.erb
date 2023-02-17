@@ -1,0 +1,27 @@
+<h1>New Appointment</h1>
+<form action="/appointment" accept-charset="UTF-8" method="post">
+    <input type="hidden" name="authenticity_token" value="...">
+
+    <div>
+       <%= select(:appointment, :doctor_id, Doctor.all.collect { |d| [ d.name, d.id ] }, { prompt: "Select Doctor" }) %>
+    </div><br>
+
+    <div>
+       <%= select(:appointment, :patient_id, Patient.all.collect { |p| [ p.patient_name, p.id ] }, { prompt: "Select Patient" }) %>
+    </div><br>
+
+    <div>
+        <label for="appointment_appointment_datetime">Appointment Date</label><br>
+        <input type="datetime-local" name="appointment[appointment_datetime]" id="appointment_appointment_datetime"></input>
+    </div><br>
+
+    <div>
+        <input type="submit" name="commit" value="Confirm Appointment" data-disable-with="Create Appointment">
+    </div>
+
+
+    
+    <div>
+        <%= link_to "Go Back", appointment_index_path%>
+    </div>
+</form>

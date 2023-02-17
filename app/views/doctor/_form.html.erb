@@ -1,0 +1,19 @@
+<%= form_with model: doctor do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %><br>
+    </div>
+    
+    <div>
+        <%= form.label :specialism %><br>
+        <%= form.text_field :specialism %><br>
+    </div>
+
+    <div>
+        <%= form.submit %><br>
+    </div>
+    
+    <div>
+        <%= link_to "Go Back", root_path%>
+    </div>
+<% end %>

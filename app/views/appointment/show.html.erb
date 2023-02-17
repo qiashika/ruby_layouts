@@ -1,0 +1,18 @@
+<h3>Appointment Details</h3>
+<table border>
+  <tr>
+    <th>Doctor Name</th>
+    <th>Specialism</th>
+    <th>Patient Name</th>
+    <th>Patient Contact</th>
+    <th>Appointment Date</th>
+  </tr>
+  <tr>
+    <td><%= @appointment.doctor.name %></td>
+    <td><%= @appointment.doctor.specialism %></td>
+    <td><%= @appointment.patient.patient_name %></td>
+    <td><%= @appointment.patient.phone_number %></td>
+    <td><%= @appointment.appointment_datetime %></td>
+
+  </tr>
+</table>
