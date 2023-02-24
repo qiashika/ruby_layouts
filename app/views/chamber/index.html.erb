@@ -1,0 +1,23 @@
+<h1>Chamber Lists</h1>
+<table class="table table-striped ml-4 " style="max-width: 15rem;">
+<thead class="thead-dark">
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Action</th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+</thead>
+<% @chambers.each do |chamber| %>
+  <tr>
+    <td><%= chamber.name %></td>
+    <td><%= chamber.address %></td>
+    <td><%= link_to "View", chamber_path(chamber) %></td>
+    <td><%= button_to "Edit", edit_chamber_path(chamber), method: 'get' %></td>
+    <td><%= button_to "Delete", chamber_path(chamber), method: 'delete', data: {turbo_confirm: 'Are you Sure?'} %></td> 
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "New Chamber", new_chamber_path %>

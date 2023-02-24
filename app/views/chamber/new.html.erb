@@ -1,0 +1,21 @@
+<h1>New Chamber</h1>
+<form action="/bill" accept-charset="UTF-8" method="post">
+    <input type="hidden" name="authenticity_token" value="...">
+
+    <div>
+       <%= select(:bill, :doctor_id, Doctor.all.collect { |d| [ d.name, d.id ] }, { prompt: "Select Doctor" }) %>
+    </div><br>
+
+    <div>
+        <%= input type=""
+
+    <div>
+        <input type="submit" name="commit" value="Generate Bill" data-disable-with="Create Bill">
+    </div>
+
+
+    
+    <div>
+        <%= link_to "Go Back", bill_index_path%>
+    </div>
+</form>

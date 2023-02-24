@@ -1,0 +1,41 @@
+<%= form_with model: bill do |form| %>
+    <div>
+        <%= form.label :doctor_id %><br>
+        <%= form.text_field :doctor_id %><br>
+    </div>
+
+    <div>
+        <%= form.label :patient_id %><br>
+        <%= form.text_field :patient_id %><br>
+    </div>
+
+    <div>
+       <% form.label :doctor_cost %><br>
+       <% form.number_field :doctor_cost disabled : true %><br>
+    </div>
+
+    <div>
+       <% form.label :payment_type %><br>
+       <%= form.select :payment_type, options_for_select([["Select One", ""], "Online", "Cash", "Bank Transfer"]), :class => 'genForm_dropBox' %>
+       <br>
+    </div>
+    
+    <div>
+        <% form.label :payment_status %><br>
+        <%= form.select :payment_status, options_for_select([["Select One", ""], "Paid", "Pending"]), :class => 'genForm_dropBox' %>
+    <br>
+    </div>
+
+    <div>
+    <% form.label :payment_status %><br>
+    <%= form.select :payment_status, options_for_select([["Select One", ""], "Paid", "Pending"]), :class => 'genForm_dropBox' %>
+<br>
+</div>  
+    <div>
+        <%= form.submit %><br>
+    </div>
+    
+    <div>
+        <%= link_to "Go Back", appointment_index_path%>
+    </div>
+<% end %>

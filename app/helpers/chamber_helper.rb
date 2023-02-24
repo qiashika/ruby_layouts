@@ -1,0 +1,2 @@
+module ChamberHelper
+end

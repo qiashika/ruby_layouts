@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_17_101334) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_081441) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,11 +24,37 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_101334) do
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
   end
 
+  create_table "bills", force: :cascade do |t|
+    t.string "payment_type"
+    t.string "payment_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "doctor_id"
+    t.bigint "patient_id"
+    t.index ["doctor_id"], name: "index_bills_on_doctor_id"
+    t.index ["patient_id"], name: "index_bills_on_patient_id"
+  end
+
+  create_table "chambers", force: :cascade do |t|
+    t.string "name"
+    t.text "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chambers_doctors", id: false, force: :cascade do |t|
+    t.bigint "doctor_id"
+    t.bigint "chamber_id"
+    t.index ["chamber_id"], name: "index_chambers_doctors_on_chamber_id"
+    t.index ["doctor_id"], name: "index_chambers_doctors_on_doctor_id"
+  end
+
   create_table "doctors", force: :cascade do |t|
     t.string "name"
     t.string "specialism"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "cost"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -40,4 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_101334) do
 
   add_foreign_key "appointments", "doctors"
   add_foreign_key "appointments", "patients"
+  add_foreign_key "bills", "doctors"
+  add_foreign_key "bills", "patients"
 end

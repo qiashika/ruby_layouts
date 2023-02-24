@@ -1,0 +1,17 @@
+<h3>Bill Details</h3>
+<table border>
+  <tr>
+    <th>Doctor Name</th>
+    <th>Patient Name</th>
+    <th>Cost</th>
+    <th>Payment Type</th>
+    <th>Payment Status</th>
+  </tr>
+  <tr>
+    <td><%= @bill.doctor.name %></td>
+    <td><%= @bill.patient.patient_name %></td>
+    <td><%= @bill.doctor.cost %></td>
+    <td><%= @bill.payment_type %></td>
+    <td><%= @bill.payment_status %></td>
+  </tr>
+</table>

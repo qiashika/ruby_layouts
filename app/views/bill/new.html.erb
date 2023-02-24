@@ -1,0 +1,29 @@
+<h1>New Bill Generation</h1>
+<form action="/bill" accept-charset="UTF-8" method="post">
+    <input type="hidden" name="authenticity_token" value="...">
+
+    <div>
+       <%= select(:bill, :doctor_id, Doctor.all.collect { |d| [ d.name, d.id ] }, { prompt: "Select Doctor" }) %>
+    </div><br>
+
+    <div>
+       <%= select(:bill, :patient_id, Patient.all.collect { |p| [ p.patient_name, p.id ] }, { prompt: "Select Patient" }) %>
+    </div><br>
+
+    <div>
+       <%=select(:bill, :payment_type, options_for_select([["Online",'online'], ["Cash",'cash'],["Bank Transfer",'bank']]))%>
+    </div><br>
+
+    <div>
+        <%=select(:bill, :payment_status, options_for_select([["Paid","paid"],["Pending","pending"]]))%>
+    </div>
+    <div>
+        <input type="submit" name="commit" value="Generate Bill" data-disable-with="Create Bill">
+    </div>
+
+
+    
+    <div>
+        <%= link_to "Go Back", bill_index_path%>
+    </div>
+</form>
