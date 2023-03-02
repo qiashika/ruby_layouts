@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      get 'patient_info/index'
+      get 'patient_info/show'
       get 'doctor/index'
       get 'doctor/show'
 
       resources :doctor
+      resources :patient_info
+      resources :appointments
     end
   end
   get 'appointment/index'
