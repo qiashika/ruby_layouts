@@ -1,6 +1,6 @@
 class Api::V1::DoctorController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
   skip_before_action :verify_authenticity_token
+  before_action :set_doctor, only: [:update, :show, :destroy]
 
 
   def index
@@ -16,15 +16,23 @@ class Api::V1::DoctorController < ApplicationController
       render json: {error: "Doctor not found"}
     end
   end
-  
+  def display
+    doctor = Doctor.find(params[:id])
+    if doctor
+      render json: doctor, status: 200
+    else
+      render json: {error: "Doctor not found"}
+    end
+  end
+
   def create
-    @doctor = Doctor.new(name: doctor_params[:name], 
+    doctor = Doctor.new(name: doctor_params[:name], 
     specialism: doctor_params[:specialism],
     cost: doctor_params[:cost]
     )
 
-    if @doctor.save
-      render json: @doctor, status: 200, location: @doctor
+    if doctor.save
+      render json: doctor, status: 200
     else 
       render json: {error: "Cannot add new doctor"}
     end
@@ -32,9 +40,8 @@ class Api::V1::DoctorController < ApplicationController
 
   def update
     doctor = Doctor.find(params[:id])
-
     if doctor.update(doctor_params)
-      render json: "Updated successfully"
+      redirect_to doctor, notice: "Updated successfully"
     else
       render json: {error: "Failed to update"}
     end
@@ -50,5 +57,8 @@ class Api::V1::DoctorController < ApplicationController
   private
   def doctor_params
     params.require(:doctor).permit(:name, :specialism, :cost)
+  end
+  def set_doctor
+    doctor = Doctor.find(params[:id])
   end
 end
