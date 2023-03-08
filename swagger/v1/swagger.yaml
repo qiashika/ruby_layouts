@@ -42,11 +42,50 @@
             }
           }
         }
+      },
+      "post": {
+        "summary": "create a doctor",
+        "tags": [
+          "doctors"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "doctor created"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "specialism": {
+                    "type": "string"
+                  },
+                  "cost": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "specialism",
+                  "cost"
+                ]
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/doctor/{id}": {
       "get": {
-        "summary": "A Doctor",
+        "summary": "Show a Doctor",
         "tags": [
           "doctors"
         ],
@@ -100,15 +139,130 @@
             }
           }
         }
+      },
+      "delete": {
+        "summary": "delete a doctor",
+        "tags": [
+          "doctors"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "doctor deleted"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "summary": "Updates a doctor",
+        "tags": [
+          "doctors"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "302": {
+            "description": "doctor updated"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "specialism": {
+                    "type": "string"
+                  },
+                  "cost": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "specialism",
+                  "cost"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/patient/{id}": {
+      "get": {
+        "summary": "Show patients under a Doctor",
+        "tags": [
+          "Patients"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "patient_name": {
+                        "type": "string"
+                      },
+                      "phone_number": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "patient_name",
+                      "phone_number"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
   "servers": [
     {
-      "url": "https://{defaultHost}",
+      "url": "http://{defaultHost}",
       "variables": {
         "defaultHost": {
-          "default": "www.example.com"
+          "default": "localhost:3000"
         }
       }
     }

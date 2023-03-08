@@ -32,7 +32,7 @@ RSpec.describe 'api/my', type: :request do
 	end
 		
 	path '/api/v1/doctor/{id}' do
-		get 'A Doctor' do
+		get 'Show a Doctor' do
 			tags :doctors
 			produces 'application/json'
 			parameter name: :id, in: :path, type: :string

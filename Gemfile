@@ -41,6 +41,7 @@ gem "sassc-rails"
 
 gem "bootstrap-sass"
 gem "jquery-rails"
+gem "rack-cors"
 
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]

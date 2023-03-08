@@ -42,7 +42,7 @@ class Api::V1::DoctorController < ApplicationController
   def update
     doctor = Doctor.find(params[:id])
     if doctor.update(doctor_params)
-      render json: doctor, message: "Updated successfully"
+      render json: doctor, message: "Updated successfully", status: 302
     else
       render json: {error: "Failed to update"}
     end
