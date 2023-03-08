@@ -1,6 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/my', type: :request do
+
   path '/api/v1/doctor' do
     get 'List of doctors' do
 			before do
