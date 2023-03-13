@@ -19,6 +19,7 @@ class AppointmentController < ApplicationController
     @appointment = Appointment.new (appointment_params)
 
     if @appointment.save
+      AppointmentMailer.appointment_confirmation(@appointment).deliver_now
       redirect_to @appointment
     else 
       render :new, status: :unprocessable_entity

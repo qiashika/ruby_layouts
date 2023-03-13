@@ -4,6 +4,7 @@
     <tr>
         <th>Name</th>
         <th>Contact</th>
+        <th>Email ID</th>
         <th>Action</th>
         <th>Action</th>
         <th>Action</th>
@@ -14,6 +15,7 @@
         <tr>
             <td><%= patient.patient_name %></td>
             <td><%= patient.phone_number %></td>
+            <td><%= patient.email_id %></td>
             <td><%= link_to "View", patient_path(patient) %></td>
             <td><%= button_to "Edit", edit_patient_path(patient), method: 'get' %></td>
             <td><%= button_to "Delete", patient_path(patient), method: 'delete', data: {turbo_confirm: 'Are you Sure?'} %></td> 

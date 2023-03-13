@@ -17,6 +17,7 @@ class PatientController < ApplicationController
     @patient = Patient.new (patient_params)
 
     if @patient.save
+      PatientmailerMailer.registration_confirmation(@patient).deliver_now
       redirect_to @patient
     else 
       render :new, status: :unprocessable_entity
@@ -46,6 +47,6 @@ class PatientController < ApplicationController
 
   private
   def patient_params
-    params.require(:patient).permit(:patient_name, :phone_number)
+    params.require(:patient).permit(:patient_name, :phone_number, :email_id)
   end
 end
