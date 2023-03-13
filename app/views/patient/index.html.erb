@@ -1,6 +1,6 @@
-<h1>Patient List</h1>
-<table class="table table-sm table-striped ml-4 " style="max-width: 15rem;">
-<thead class="thead-dark">
+<h1 style="margin: 1%;border-bottom: 1px solid;max-width: 25%"><i>Patient List</i></h1>
+<table class="table table-sm table-striped ml-4 " style="margin: 1%; max-width: 15rem;">
+<thead class="thead-dark" style="color: blue">
     <tr>
         <th>Name</th>
         <th>Contact</th>
@@ -22,5 +22,6 @@
         </tr>
     <% end %>
 </table>
-
-<%= link_to "Add Patient", new_patient_path %>
+<div style="margin: 1%">
+    <%= link_to "Add Patient", new_patient_path %>
+</div>

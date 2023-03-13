@@ -1,24 +1,25 @@
+
 <%= form_with model: appointment do |form| %>
-    <div>
+    <div style="margin: 0.5%">
       <%= form.label :appointment_datetime %><br>
       <%= form.datetime_field :appointment_datetime%><br>
     </div>
     
-    <div>
+    <div style="margin: 0.5%">
         <%= form.label :doctor_id %><br>
         <%= form.text_field :doctor_id %><br>
     </div>
 
-    <div>
+    <div style="margin: 0.5%">
         <%= form.label :patient_id %><br>
         <%= form.text_field :patient_id %><br>
     </div>
 
-    <div>
+    <div style="margin: 0.5%">
         <%= form.submit %><br>
     </div>
     
-    <div>
+    <div style="margin: 0.5%">
         <%= link_to "Go Back", appointment_index_path%>
     </div>
 <% end %>

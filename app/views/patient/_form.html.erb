@@ -1,24 +1,25 @@
 <%= form_with model: patient do |form| %>
-    <div>
+    <div style="margin: 0.5%">
       <%= form.label :patient_name %><br>
       <%= form.text_field :patient_name %><br>
     </div>
     
-    <div>
+    <div style="margin: 0.5%" >
         <%= form.label :phone_number %><br>
         <%= form.text_field :phone_number %><br>
     </div>
     
-    <div>
+    <div style="margin: 0.5%" >
     <%= form.label :email_id %><br>
     <%= form.text_field :email_id %><br>
     </div>
     
-    <div>
+    <br>
+    <div style="margin: 0.5%" >
         <%= form.submit %><br>
     </div>
-    
-    <div>
+    <br>
+    <div style="margin: 0.5%">
         <%= link_to "Go Back", patient_index_path%>
     </div>
 <% end %>

@@ -1,24 +1,24 @@
 <%= form_with model: doctor do |form| %>
-    <div>
+    <div style="margin: 0.5%">
       <%= form.label :name %><br>
       <%= form.text_field :name %><br>
     </div>
     
-    <div>
+    <div style="margin: 0.5%">
         <%= form.label :specialism %><br>
         <%= form.text_field :specialism %><br>
     </div>
 
-    <div>
+    <div style="margin: 0.5%">
         <%= form.label :cost %><br>
         <%= form.number_field :cost %><br>
     </div>
 
-    <div>
+    <div style="margin: 0.5%">
         <%= form.submit %><br>
     </div>
     
-    <div>
+    <div style="margin: 0.5%">
         <%= link_to "Go Back", root_path%>
     </div>
 <% end %>

@@ -1,27 +1,29 @@
-<h1>New Appointment</h1>
+<h3 style="margin: 1%;border-bottom: 1px solid;max-width: 25%"><i>New Appointment<i></h3>
 <form action="/appointment" accept-charset="UTF-8" method="post">
     <input type="hidden" name="authenticity_token" value="...">
 
-    <div>
+    <div style="margin: 0.5%">
+        <label for="appointment_doctor_id">Select Doctor</label>
        <%= select(:appointment, :doctor_id, Doctor.all.collect { |d| [ d.name, d.id ] }, { prompt: "Select Doctor" }) %>
-    </div><br>
+    </div>
 
-    <div>
+    <div style="margin: 0.5%">
+        <label for="appointment_patient_id">Select Patient</label>
        <%= select(:appointment, :patient_id, Patient.all.collect { |p| [ p.patient_name, p.id ] }, { prompt: "Select Patient" }) %>
-    </div><br>
+    </div>
 
-    <div>
-        <label for="appointment_appointment_datetime">Appointment Date</label><br>
+    <div style="margin: 0.5%">
+        <label for="appointment_appointment_datetime">Appointment Date</label>
         <input type="datetime-local" name="appointment[appointment_datetime]" id="appointment_appointment_datetime"></input>
-    </div><br>
+    </div>
 
-    <div>
+    <div style="margin: 0.5%">
         <input type="submit" name="commit" value="Confirm Appointment" data-disable-with="Create Appointment">
     </div>
 
 
     
-    <div>
+    <div style="margin: 0.5%;">
         <%= link_to "Go Back", appointment_index_path%>
     </div>
 </form>

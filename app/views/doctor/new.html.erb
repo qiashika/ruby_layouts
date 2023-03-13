@@ -1,27 +1,27 @@
-<h1>New Doctor</h1>
+<h3 style="margin: 1%;border-bottom: 1px solid;max-width: 25%"><i>New Doctor</i></h3>
 <form action="/doctor" accept-charset="UTF-8" method="post">
     <input type="hidden" name="authenticity_token" value="...">
 
-    <div>
+    <div style="margin: 0.5%">
         <label for="doctor_name">Name</label><br>
         <input type="text" name="doctor[name]" id="doctor_name">
     </div>
 
-    <div>
+    <div style="margin: 0.5%">
         <label for="doctor_specialism">Specialism</label><br>
         <input type='text' name="doctor[specialism]" id="doctor_specialism"></input>
     </div>
 
-    <div>
+    <div style="margin: 0.5%">
         <label for="doctor_cost">Cost</label><br>
         <input type="number" name="doctor[cost]" id="doctor_cost">
     </div>
 
-    <div>
+    <div style="margin: 0.5%">
         <input type="submit" name="commit" value="Add New Doctor" data-disable-with="Create Doctor">
     </div>
     
-    <div>
+    <div style="margin: 0.5%">
         <%= link_to "Go Back", root_path%>
     </div>
 </form>
