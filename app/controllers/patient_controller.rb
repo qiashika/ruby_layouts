@@ -20,6 +20,7 @@ class PatientController < ApplicationController
       PatientmailerMailer.registration_confirmation(@patient).deliver_now
       redirect_to @patient
     else 
+      flash[:error] = @patient.errors.full_messages.join(", ")
       render :new, status: :unprocessable_entity
     end
   end
@@ -34,6 +35,7 @@ class PatientController < ApplicationController
     if @patient.update(patient_params)
       redirect_to @patient
     else
+      flash[:error] = @patient.errors.full_messages.join(", ")
       render :edit, status: :unprocessable_entity
     end
   end
@@ -47,6 +49,6 @@ class PatientController < ApplicationController
 
   private
   def patient_params
-    params.require(:patient).permit(:patient_name, :phone_number, :email_id)
+    params.require(:patient).permit(:patient_name, :phone_number, :email_id, :language)
   end
 end

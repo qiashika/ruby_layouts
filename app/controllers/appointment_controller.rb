@@ -22,6 +22,7 @@ class AppointmentController < ApplicationController
       AppointmentMailer.appointment_confirmation(@appointment).deliver_now
       redirect_to @appointment
     else 
+      flash[:error] = @appointment.errors.full_messages.join(", ")
       render :new, status: :unprocessable_entity
     end
   end
@@ -34,8 +35,10 @@ class AppointmentController < ApplicationController
     @appointment = Appointment.find(params[:id])
 
     if @appointment.update(appointment_params)
+      AppointmentMailer.appointment_confirmation(@appointment).deliver_now
       redirect_to @appointment
     else
+      flash[:error] = @appointment.errors.full_messages.join(", ")
       render :edit, status: :unprocessable_entity
     end
   end

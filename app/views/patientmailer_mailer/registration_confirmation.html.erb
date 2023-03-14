@@ -1,3 +1,11 @@
-<h1>Thank you for registering!</h1>
-<p>Dear <%= @patient.patient_name %>,</p>
-<p>Your registration is now confirmed.</p>
+<%=I18n.t('thank you for registering',locale: @patient.language.presence)%><br>
+<div style="margin-top: 1%">
+    <%=I18n.t('dear',locale: @patient.language.presence)%><%=@patient.patient_name %><br>
+    <br>
+    <%=I18n.t('we are glad to have you',locale: @patient.language.presence)%><br>
+    <%=I18n.t('your registration is now confirmed.',locale: @patient.language.presence)%>
+</div>
+<div style="margin-top: 15%">
+    <%=I18n.t('regards',locale: @patient.language.presence)%>
+    <p>Doctors Team</p>
+</div>

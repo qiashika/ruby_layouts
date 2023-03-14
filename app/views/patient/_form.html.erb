@@ -1,3 +1,6 @@
+<% if flash[:error].present? %>
+  <div class="alert alert-danger"><%= flash[:error] %></div>
+<% end %>
 <%= form_with model: patient do |form| %>
     <div style="margin: 0.5%">
       <%= form.label :patient_name %><br>
@@ -10,8 +13,17 @@
     </div>
     
     <div style="margin: 0.5%" >
-    <%= form.label :email_id %><br>
-    <%= form.text_field :email_id %><br>
+      <%= form.label :email_id %><br>
+      <%= form.text_field :email_id %><br>
+    </div>
+
+    <div style="margin: 0.5%" >
+      <%= form.label :language %><br>
+      <select name="patient[language]" id="patient_language">
+        <option value="en">English</option>
+        <option value="fr">French</option>
+      </select>
+      <br>
     </div>
     
     <br>

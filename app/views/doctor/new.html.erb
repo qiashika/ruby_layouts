@@ -1,4 +1,7 @@
 <h3 style="margin: 1%;border-bottom: 1px solid;max-width: 25%"><i>New Doctor</i></h3>
+<% if flash[:error].present? %>
+  <div class="alert alert-danger"><%= flash[:error] %></div>
+<% end %>
 <form action="/doctor" accept-charset="UTF-8" method="post">
     <input type="hidden" name="authenticity_token" value="...">
 

@@ -1,4 +1,7 @@
 <h3 style="margin: 1%;border-bottom: 1px solid;max-width: 25%"><i>New Appointment<i></h3>
+<% if flash[:error].present? %>
+  <div class="alert alert-danger"><%= flash[:error] %></div>
+<% end %>
 <form action="/appointment" accept-charset="UTF-8" method="post">
     <input type="hidden" name="authenticity_token" value="...">
 
@@ -8,8 +11,8 @@
     </div>
 
     <div style="margin: 0.5%">
-        <label for="appointment_patient_id">Select Patient</label>
-       <%= select(:appointment, :patient_id, Patient.all.collect { |p| [ p.patient_name, p.id ] }, { prompt: "Select Patient" }) %>
+      <label for="appointment_patient_id">Select Patient</label>
+      <%= select(:appointment, :patient_id, Patient.all.collect { |p| [ p.patient_name, p.id ] }, { prompt: "Select Patient" }) %>
     </div>
 
     <div style="margin: 0.5%">

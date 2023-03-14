@@ -19,6 +19,7 @@ class DoctorController < ApplicationController
     if @doctor.save
       redirect_to @doctor
     else 
+      flash[:error] = @doctor.errors.full_messages.join(", ")
       render :new, status: :unprocessable_entity
     end
   end
@@ -33,6 +34,7 @@ class DoctorController < ApplicationController
     if @doctor.update(doctor_params)
       redirect_to @doctor
     else
+      flash[:error] = @doctor.errors.full_messages.join(", ")
       render :edit, status: :unprocessable_entity
     end
   end

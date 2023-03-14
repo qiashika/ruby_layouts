@@ -1,3 +1,10 @@
-<h1>Thank you!</h1>
-<p>Dear <%= @appointment.patient.patient_name %>,</p>
-<p>Your appointment is now confirmed with <%=@appointment.doctor.name %> on <%= @appointment.appointment_datetime %>.</p>
+<%=I18n.t('thank you',locale: @appointment.patient.language.presence)%><br>
+<div style="margin-top: 1%">
+  <%=I18n.t('dear',locale: @appointment.patient.language.presence)%><%= @appointment.patient.patient_name %>
+  <%=I18n.t('your appointment is now confirmed with',locale: @appointment.patient.language.presence)%><%=@appointment.doctor.name %><%=I18n.t('for',locale: @appointment.patient.language.presence)%><%= @appointment.appointment_datetime %>
+</div>
+
+<div style="margin-top: 15%">
+  <%=I18n.t('regards',locale: @appointment.patient.language.presence)%>
+  <p>Doctors Team</p>
+</div>
