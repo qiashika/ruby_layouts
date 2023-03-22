@@ -1,22 +1,38 @@
-<h1>New Patient</h1>
+<h3 style="margin: 1%;border-bottom: 1px solid;max-width: 25%"><i>New Patient</i></h3>
+<% if flash[:error].present? %>
+  <div class="alert alert-danger"><%= flash[:error] %></div>
+<% end %>
 <form action="/patient" accept-charset="UTF-8" method="post">
     <input type="hidden" name="authenticity_token" value="...">
 
-    <div>
+    <div style="margin: 0.5%">
         <label for="patient_patient_name">Patient Name</label><br>
         <input type="text" name="patient[patient_name]" id="patient_patient_name">
     </div>
 
-    <div>
+    <div style="margin: 0.5%">
         <label for="patient_phone_number">Contact</label><br>
         <input type='text' name="patient[phone_number]" id="patient_phone_number"></input>
     </div>
 
-    <div>
+    <div style="margin: 0.5%">
+      <label for="patient_email_id">E-mail ID</label><br>
+      <input type='text' name="patient[email_id]" id="patient_email_id"></input>
+    </div>
+
+    <div style="margin: 0.5%">
+      <label for="patient_language">Language</label>
+      <select name="patient[language]" id="patient_language">
+        <option value="en">English</option>
+        <option value="fr">French</option>
+      </select>
+    </div>
+
+    <div style="margin: 0.5%">
         <input type="submit" name="commit" value="Add New Patient" data-disable-with="Create Patient">
     </div>
     
-    <div>
-        <%= link_to "Go Back", patient_index_path%>
+    <div style="margin: 0.5%">
+        <%= link_to "Go Back", patient_index_path %>
     </div>
 </form>

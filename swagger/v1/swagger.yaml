@@ -1,0 +1,270 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/doctor": {
+      "get": {
+        "summary": "List of doctors",
+        "tags": [
+          "doctors"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "specialism": {
+                        "type": "string"
+                      },
+                      "cost": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "cost"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "create a doctor",
+        "tags": [
+          "doctors"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "doctor created"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "specialism": {
+                    "type": "string"
+                  },
+                  "cost": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "specialism",
+                  "cost"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/doctor/{id}": {
+      "get": {
+        "summary": "Show a Doctor",
+        "tags": [
+          "doctors"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "specialism": {
+                      "type": "string"
+                    },
+                    "cost": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "specialism",
+                    "cost",
+                    "created_at",
+                    "updated_at"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "delete a doctor",
+        "tags": [
+          "doctors"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "doctor deleted"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "summary": "Updates a doctor",
+        "tags": [
+          "doctors"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "302": {
+            "description": "doctor updated"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "specialism": {
+                    "type": "string"
+                  },
+                  "cost": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "specialism",
+                  "cost"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/patient/{id}": {
+      "get": {
+        "summary": "Show patients under a Doctor",
+        "tags": [
+          "Patients"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "patient_name": {
+                        "type": "string"
+                      },
+                      "phone_number": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "patient_name",
+                      "phone_number"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://{defaultHost}",
+      "variables": {
+        "defaultHost": {
+          "default": "localhost:3000"
+        }
+      }
+    }
+  ]
+}

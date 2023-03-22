@@ -1,14 +1,19 @@
-<h3><%= @patient.patient_name %></h3>
-<table border>
+<h3 style="margin:1%"><%= @patient.patient_name %></h3>
+<table border class="table table-sm table-striped ml-4 " style="margin:1%; max-width: 50%">
+<thead class="thead-dark">
   <tr>
     <th>Contact</th>
+    <th>Email ID</th>
+
   </tr>
   <tr>
     <td><%= @patient.phone_number %></td>
+    <td><%= @patient.email_id %></td>
   </tr>
 </table>
-<h3>Appointment Details</h3>
-<table border>
+<h3 style="margin: 1%;border-bottom: 1px solid;max-width: 25%"><i>Appointment Details</i></h3>
+<table border class="table table-sm table-striped ml-4 " style="margin: 1%; max-width: 50%">
+<thead class="thead-dark" >
   <tr>
     <th>Doctor Name</th>
     <th>Specialism</th>
@@ -19,6 +24,10 @@
       <td><%= a.doctor.name %></td>
       <td><%= a.doctor.specialism %></td>
       <td><%= a.appointment_datetime %></td>
-    <% end %>
   </tr>
+  <% end %>
 </table>
+
+<div style="margin: 0.5%">
+    <%= link_to "Go Back", patient_index_path%>
+</div>

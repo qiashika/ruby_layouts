@@ -1,24 +1,28 @@
+
+<% if flash[:error].present? %>
+  <div class="alert alert-danger"><%= flash[:error] %></div>
+<% end %>
 <%= form_with model: appointment do |form| %>
-    <div>
+    <div style="margin: 0.5%">
       <%= form.label :appointment_datetime %><br>
       <%= form.datetime_field :appointment_datetime%><br>
     </div>
     
-    <div>
-        <%= form.label :doctor_id %><br>
-        <%= form.text_field :doctor_id %><br>
+    <div style="margin: 0.5%">
+      <%= form.label :doctor_id %><br>
+      <%= select(:appointment, :doctor_id, Doctor.all.collect { |d| [ d.name, d.id ] }, { prompt: "Select Doctor" }) %><br>
     </div>
 
-    <div>
+    <div style="margin: 0.5%">
         <%= form.label :patient_id %><br>
-        <%= form.text_field :patient_id %><br>
+        <%= select(:appointment, :patient_id, Patient.all.collect { |p| [ p.patient_name, p.id ] }, { prompt: "Select Patient" }) %><br>
     </div>
 
-    <div>
+    <div style="margin: 0.5%">
         <%= form.submit %><br>
     </div>
     
-    <div>
+    <div style="margin: 0.5%">
         <%= link_to "Go Back", appointment_index_path%>
     </div>
 <% end %>
